@@ -1,0 +1,140 @@
+/* ==========================================================================
+   Theme Wiz'rd — Global CSS
+   Import order: base tokens + atom CSS → page resets
+   ========================================================================== */
+
+/* 1. Base tokens + atom CSS (ground zero) */
+@import '@toucan-ui/tokens/css';
+
+/* 2. Minimal page-level resets — all values via token references */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--text-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Configurator-specific layout --- */
+
+.configurator-preview-sticky {
+  position: sticky;
+  top: var(--scale-4);
+}
+
+/* Preview scope — plain div that receives CSS variable overrides via style prop */
+.configurator-preview-scope {
+  padding: var(--scale-8);
+  border-radius: var(--radius-md);
+  border: var(--border-width-thin) solid var(--color-border-default);
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+  overflow: auto;
+  max-height: 80vh;
+}
+
+
+/* Colour swatches */
+.configurator-swatch {
+  width: var(--scale-8);
+  height: var(--scale-8);
+  border-radius: var(--radius-sm);
+  border: var(--border-width-thin) solid var(--color-border-default);
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Colour picker native input */
+.configurator-colour-picker {
+  width: var(--scale-10);
+  height: var(--scale-10);
+  border: var(--border-width-thin) solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  padding: var(--scale-1);
+  cursor: pointer;
+  background: none;
+}
+
+/* Scale card border */
+.configurator-scale-card {
+  border: var(--border-width-thin) solid var(--color-border-default);
+}
+
+/* Spacing visual bar */
+.configurator-spacing-visual {
+  background: var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+/* Radius preview box */
+.configurator-radius-preview {
+  width: var(--scale-12);
+  height: var(--scale-12);
+  background: var(--color-primary);
+}
+
+/* Shadow preview box */
+.configurator-shadow-preview {
+  width: var(--scale-12);
+  height: var(--scale-12);
+  background: var(--color-surface-raised);
+  border-radius: var(--radius-md);
+}
+
+/* Border width preview box */
+.configurator-border-preview {
+  width: var(--scale-12);
+  height: var(--scale-12);
+  background: var(--color-surface-default);
+  border-style: solid;
+  border-color: var(--color-border-strong);
+  border-radius: var(--radius-sm);
+}
+
+/* Colour option with inline swatch in Select dropdowns */
+.configurator-colour-option {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--scale-2);
+}
+
+.configurator-colour-option-swatch {
+  display: inline-block;
+  width: var(--scale-4);
+  height: var(--scale-4);
+  border-radius: var(--radius-sm);
+  border: var(--border-width-thin) solid var(--color-border-default);
+  flex-shrink: 0;
+}
+
+/* Alias editor labels — consistent width for alignment */
+.configurator-alias-label {
+  min-width: var(--layout-40);
+}
+
+/* Component override token labels */
+.configurator-token-label {
+  min-width: var(--layout-60);
+}
+
+/* Code blocks inside Getting Started guide */
+.configurator-code-block {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  line-height: var(--font-line-height-relaxed);
+  overflow-x: auto;
+  margin: 0;
+  white-space: pre;
+}
+
+/* Responsive: stack to single column on narrow viewports */
+@media (max-width: 1023px) {
+  .configurator-preview-sticky {
+    position: static;
+  }
+}
